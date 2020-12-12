@@ -1,6 +1,7 @@
 {
   "name": "todo",
   "version": "0.1.0",
+  "main": "src/index.js",
   "private": true,
   "homepage": "https://navdeepsingh4298.github.io/to-do",
   "dependencies": {
