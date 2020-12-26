@@ -11,7 +11,6 @@ export const InputBoxContainer = styled.div`
 
   @media screen and (max-width: 800px){
     height: 2rem;
-    width: 95%;
   }
 `;
 
@@ -21,8 +20,10 @@ export const Input = styled.input`
   font-size: 1.5rem;
   border: none;
   border-radius: 5px;
+  margin-right: 10px;
 
   @media screen and (max-width: 800px){
     font-size: 1rem;
+    margin-right: 5px;
   }
 `;

@@ -27,6 +27,6 @@ export const HeaderTitle = styled.h2`
   font-size: 4rem;
 
   @media screen and (max-width: 800px){
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 `;

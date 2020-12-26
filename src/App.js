@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // Components
 import Header from './components/header/header.component';
@@ -8,17 +8,33 @@ import ItemList from './components/items-list/item-list.component';
 // styled global component
 import { GlobalStyle, AppContainer } from './global.styles';
 
-const App = () => (
-  <AppContainer>
-    <GlobalStyle />
-    <Header
-      title="TO DO"
-    />
-    <InputBox />
+const App = () => {
 
-    <ItemList />
+  const [inputText, setInputText] = useState("");
+  const [todos, setTodos] = useState([]);
 
-  </AppContainer>
-);
+  return (
+    <AppContainer>
+
+      <GlobalStyle />
+      <Header
+        title="TO DO"
+      />
+
+      <InputBox
+        inputText={inputText}
+        setInputText={setInputText}
+        todos={todos}
+        setTodos={setTodos}
+      />
+
+      <ItemList
+        items={todos}
+        setTodos={setTodos}
+      />
+
+    </AppContainer >
+  );
+}
 
 export default App;
