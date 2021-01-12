@@ -1,10 +1,5 @@
 import React from 'react';
 
-// REDUX
-//import { connect } from 'react-redux';
-//import { addItem } from '../../redux/item-list/item-list.actions';
-
-
 // Unique id for items
 import { v4 as uuidv4 } from 'uuid';
 
@@ -54,7 +49,7 @@ const InputBox = ({ inputText, setInputText, todos, setTodos }) => {
         placeholder='Click to type here'
       />
       <Button
-        btnName='+'
+        btnName="&#10010;"
         handleClick={handleAddBtnClick}
       />
     </InputBoxContainer>

@@ -9,13 +9,13 @@ const Item = ({ itemText, setTodos, currentItem }) => {
 
   let isEditable = false;
   let isAutoFocus = false;
-  
+
   const handleCompleteBtnClick = () => {
     currentItem.completed = true;
     console.log(currentItem);
-    
+
   }
-  
+
   const handleDeleteBtnClick = (e) => {
     console.log(itemText)
   }
@@ -32,28 +32,27 @@ const Item = ({ itemText, setTodos, currentItem }) => {
 
   return (
     <ItemContainer>
-      {/* ➤  unicode	&#10148; */}
       <ItemTextContainer>
-        <ArrowContainer>➤</ArrowContainer>   
+        <ArrowContainer>&#10148;</ArrowContainer>
         <TextLiContainer
           contentEditable={isEditable}
           autoFocus={isAutoFocus}
           onInput={handleEditText}
         >
-          {itemText}          
+          {itemText}
         </TextLiContainer>
-      </ItemTextContainer>      
+      </ItemTextContainer>
       <BtnContainer>
         <Button
-          btnName='✘'
+          btnName="&#10007;"
           handleClick={handleDeleteBtnClick}
         />
         <Button
-          btnName='edit'
+          btnName="&#9998;"
           handleClick={handleEditbtn}
         />
         <Button
-          btnName='✔'
+          btnName="&#10003;"
           handleClick={handleCompleteBtnClick}
         />
       </BtnContainer>
