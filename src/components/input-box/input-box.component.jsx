@@ -22,14 +22,15 @@ const InputBox = ({ inputText, setInputText, todos, setTodos }) => {
         ...todos,
         {
           text: inputText,
-          completed: false,
+          isCompleted: false,
+          isEditable: false,
           id: uuidv4()
         }
       ]);
       setInputText('');
     }
     else {
-      alert("Type something to add");
+      alert("Type something to Add");
     }
   }
 
@@ -46,22 +47,14 @@ const InputBox = ({ inputText, setInputText, todos, setTodos }) => {
         value={inputText}
         onChange={handleTextChange}
         onKeyUp={checkEnterKey}
-        placeholder='Click to type here'
+        placeholder='Type Here'
       />
       <Button
         btnName="&#10010;"
         handleClick={handleAddBtnClick}
       />
     </InputBoxContainer>
-
   )
 }
-
-// const mapDispatchToProps = dispatch => ({
-//   addItem: item => dispatch(addItem(item))
-// })
-
-
-// export default connect(null, mapDispatchToProps)(InputBox); 
 
 export default InputBox;

@@ -13,7 +13,12 @@ const ItemList = ({ items, setTodos }) => {
       {
         items.map(item => {
           return (
-            <Item key={item.id} itemText={item.text} currentItem={item} setTodos={setTodos} />
+            <Item
+              key={item.id}
+              allItems={items}
+              currentItem={item}
+              setTodos={setTodos}
+            />
           )
         })
       }

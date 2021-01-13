@@ -5,41 +5,45 @@ import Button from '../button/button.component';
 
 import { ItemContainer, BtnContainer, ItemTextContainer, ArrowContainer, TextLiContainer } from './item.styles';
 
-const Item = ({ itemText, setTodos, currentItem }) => {
-
-  let isEditable = false;
-  let isAutoFocus = false;
+const Item = ({ setTodos, currentItem, allItems }) => {
 
   const handleCompleteBtnClick = () => {
     currentItem.completed = true;
     console.log(currentItem);
+    // when completed apply strike through style
 
   }
 
   const handleDeleteBtnClick = (e) => {
-    console.log(itemText)
+    console.log(currentItem);
+    // setTodos()
   }
 
   const handleEditText = e => {
-    itemText = (e.target.innerText);
-    console.log(itemText);
+    currentItem.text = (e.target.innerText);
+    console.log(currentItem.text);
+
+    // TODO: if text become empty then delete that li
+    // check new text must not be empty or same  as other text
+    // if so then alert or do something
   }
 
-  const handleEditbtn = () => {
-    isEditable = !isEditable;
-    isAutoFocus = !isAutoFocus;
-  }
+  // const handleEditbtn = () => {
+  //   currentItem.isEditable = true;
+  //   // isEditable = !isEditable;
+  //   // isAutoFocus = !isAutoFocus;
+  //   // make it editable
+  // }
 
   return (
     <ItemContainer>
       <ItemTextContainer>
         <ArrowContainer>&#10148;</ArrowContainer>
         <TextLiContainer
-          contentEditable={isEditable}
-          autoFocus={isAutoFocus}
+          contentEditable={true}
           onInput={handleEditText}
         >
-          {itemText}
+          {currentItem.text}
         </TextLiContainer>
       </ItemTextContainer>
       <BtnContainer>
@@ -47,10 +51,10 @@ const Item = ({ itemText, setTodos, currentItem }) => {
           btnName="&#10007;"
           handleClick={handleDeleteBtnClick}
         />
-        <Button
+        {/* <Button
           btnName="&#9998;"
           handleClick={handleEditbtn}
-        />
+        /> */}
         <Button
           btnName="&#10003;"
           handleClick={handleCompleteBtnClick}

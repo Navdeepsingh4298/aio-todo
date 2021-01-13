@@ -6,7 +6,7 @@ export const BtnContainer = styled.button`
   align-items: center;
   font-size: 1.8rem;
   background: var(--yellow);
-  color: var(--voilet);
+  color: var(--black);
   width: 2.5rem;
   height: 2.5rem;
   margin: 5px;
@@ -20,9 +20,10 @@ export const BtnContainer = styled.button`
   }
 
   &:hover{
-    background: var(--voilet);
+    background: var(--black);
     color: var(--yellow);
     cursor: pointer;
+    border: 1px solid var(--yellow);
   }
   
 `;

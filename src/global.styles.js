@@ -4,7 +4,7 @@ export const GlobalStyle = createGlobalStyle`
   *{
     box-sizing: border-box;
   }
-    body{
+    html,body{
 
       margin: 0;
       padding: 0;
@@ -20,14 +20,14 @@ export const GlobalStyle = createGlobalStyle`
       --black: #000;
 
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
+      flex-direction: column;
       align-items: center;
-      width: 100vw;
-      height: 100vh;
-      background: var(--voilet);
+      width: 100%;
+      min-height: 100%;
+      background: linear-gradient(45deg, blue, red);
       color: black;
     }
-
 `;
 
 export const AppContainer = styled.div`
@@ -37,15 +37,15 @@ export const AppContainer = styled.div`
   width: 70vw;
   min-height: 85vh;
   height: auto;
-  margin: 3rem auto;
+  margin: 3rem auto 0;
   border: 2px solid black;
   border-radius: 20px;
   background: var(--black);
 
   @media screen and (max-width: 800px){
     width: 90vw;
-    height: 95vh;
-    margin: 0 auto;
+    min-height: 90vh;
+    margin: 1rem auto;
   }
 `;
 

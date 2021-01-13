@@ -17,10 +17,11 @@ export const InputBoxContainer = styled.div`
 export const Input = styled.input`
   width: 100%;
   height: 100%;
-  font-size: 1.5rem;
+  font-size: 1rem;
   border: none;
   border-radius: 5px;
   margin-right: 10px;
+  padding: 20px;
 
   @media screen and (max-width: 800px){
     font-size: 1rem;
