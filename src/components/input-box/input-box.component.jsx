@@ -23,7 +23,6 @@ const InputBox = ({ inputText, setInputText, todos, setTodos }) => {
         {
           text: inputText,
           isCompleted: false,
-          isEditable: false,
           id: uuidv4()
         }
       ]);

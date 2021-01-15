@@ -1,4 +1,4 @@
-import styled,{css} from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const centeredStyles = css`
   display: inline-flex;
@@ -24,8 +24,12 @@ export const ItemContainer = styled.div`
 export const ItemTextContainer = styled.div`
   display: flex;
   align-items: flex-start;
-  width: 75%;
+  width: 85%;
   border-bottom: 1px solid black;
+
+  @media screen and (max-width:800px){
+    width: 80%;
+  }
 `;
 
 export const ArrowContainer = styled.span`
@@ -40,9 +44,10 @@ export const TextLiContainer = styled.li`
 export const BtnContainer = styled.div`
   ${centeredStyles};
   height: 3rem;
-  width: 25%;
+  width: 15%;
 
   @media screen and (max-width:800px){
     height: 2rem;
+    width: 20%;
   }
 `;

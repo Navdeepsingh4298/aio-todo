@@ -8,15 +8,15 @@ import { ItemContainer, BtnContainer, ItemTextContainer, ArrowContainer, TextLiC
 const Item = ({ setTodos, currentItem, allItems }) => {
 
   const handleCompleteBtnClick = () => {
-    currentItem.completed = true;
-    console.log(currentItem);
-    // when completed apply strike through style
-
+    currentItem.isCompleted = !currentItem.isCompleted;
+    // It just opposite the current value of isCompleted
+    // Then render all items with updated properties
   }
 
-  const handleDeleteBtnClick = (e) => {
-    console.log(currentItem);
-    // setTodos()
+  const handleDeleteBtnClick = () => {
+    setTodos(allItems.filter((el) => el.id !== currentItem.id));
+    // filter method loop through each element in allItems array
+    // and render only those whose id doesn't match currentItem's id
   }
 
   const handleEditText = e => {
@@ -41,6 +41,7 @@ const Item = ({ setTodos, currentItem, allItems }) => {
         <ArrowContainer>&#10148;</ArrowContainer>
         <TextLiContainer
           contentEditable={true}
+          style={currentItem.isCompleted ? { textDecoration: 'lineThrough' } : null}
           onInput={handleEditText}
         >
           {currentItem.text}

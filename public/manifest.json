@@ -1,6 +1,6 @@
 {
-  "short_name": "TODO App",
-  "name": "TODO MERN App",
+  "short_name": "AIO TODO App",
+  "name": "AIO TODO MERN App",
   "icons": [
     {
       "src": "./assets/favicon.svg",
