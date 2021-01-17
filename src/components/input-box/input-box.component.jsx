@@ -7,12 +7,16 @@ import { v4 as uuidv4 } from 'uuid';
 import Button from '../button/button.component';
 
 // styled component
-import { InputBoxContainer, Input } from './input-box.styles';
+import { InputBoxContainer, Input, SelectDropDown } from './input-box.styles';
 
-const InputBox = ({ inputText, setInputText, todos, setTodos }) => {
+const InputBox = ({ inputText, setInputText, todos, setTodos, setStatus }) => {
 
   const handleTextChange = e => {
     setInputText(e.target.value)
+  }
+
+  const handleStatus = e => {
+    setStatus(e.target.value);
   }
 
   const handleAddBtnClick = e => {
@@ -34,7 +38,7 @@ const InputBox = ({ inputText, setInputText, todos, setTodos }) => {
     }
   }
 
-  // if someone press enter key after typing
+  // if someone press enter key 
   const checkEnterKey = e => {
     e.keyCode === 13 && handleAddBtnClick(e);
   }
@@ -53,6 +57,13 @@ const InputBox = ({ inputText, setInputText, todos, setTodos }) => {
         btnName="&#10010;"
         handleClick={handleAddBtnClick}
       />
+      <SelectDropDown
+        onChange={handleStatus}
+      >
+        <option value="all">all</option>
+        <option value="completed">completed</option>
+        <option value="uncompleted">uncompleted</option>
+      </SelectDropDown>
     </InputBoxContainer>
   )
 }

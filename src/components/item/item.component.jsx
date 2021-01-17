@@ -1,8 +1,5 @@
 import React from 'react';
 
-//for toast notifications
-import toaster from 'toasted-notes';
-
 // component
 import Button from '../button/button.component';
 

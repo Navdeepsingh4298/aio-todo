@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <FooterPara>
-        &copy; {year} AIO TODO MERN APP.
+        &copy; {year} AIO TODO APP.
       </FooterPara>
       <FooterPara>
         Made In India by <FooterLink href="https://github.com/navdeepsingh4298" >Navdeep Singh</FooterLink>

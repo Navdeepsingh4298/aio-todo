@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Components
 import Header from './components/header/header.component';
@@ -11,20 +11,64 @@ import { GlobalStyle, AppContainer } from './global.styles';
 
 const App = () => {
 
+  // State
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
+  const [status, setStatus] = useState("all");
+  const [filteredTodos, setFilteredTodos] = useState([]);
+
+
+  //run once when app starts
+  useEffect(() => {
+    getFromLocalStorage();
+  }, []);
+
+  // it runs below two functions only when todos and status changes
+  useEffect(() => {
+    const filterHandler = () => {
+      switch (status) {
+        case 'completed':
+          setFilteredTodos(todos.filter(todo => todo.isCompleted === true));
+          break;
+        case 'uncompleted':
+          setFilteredTodos(todos.filter(todo => todo.isCompleted === false));
+          break;
+        default:
+          setFilteredTodos(todos);
+          break;
+      }
+    }
+    const saveToLocalStorage = () => {
+      localStorage.setItem("todos", JSON.stringify(todos));
+    };
+
+    filterHandler();
+    saveToLocalStorage();
+  }, [todos, status]);
+
+
+  // Save to Local Storage
+  const getFromLocalStorage = () => {
+    if (localStorage.getItem("todos") === null) {
+      localStorage.setItem("todos", JSON.stringify([]));
+    } else {
+      let todoLocal = JSON.parse(localStorage.getItem("todos"));
+      setTodos(todoLocal);
+    }
+  };
 
   return (
     <>
       <AppContainer>
         <GlobalStyle />
         <Header
-          title="AIO TO-DO"
+          title="To do's List"
         />
 
         <InputBox
           inputText={inputText}
           setInputText={setInputText}
+          setStatus={setStatus}
           todos={todos}
           setTodos={setTodos}
         />
@@ -32,6 +76,7 @@ const App = () => {
         <ItemList
           items={todos}
           setTodos={setTodos}
+          filteredTodos={filteredTodos}
         />
 
       </AppContainer >
