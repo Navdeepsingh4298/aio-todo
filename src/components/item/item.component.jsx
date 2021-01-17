@@ -8,40 +8,65 @@ import { ItemContainer, BtnContainer, ItemTextContainer, ArrowContainer, TextLiC
 const Item = ({ setTodos, currentItem, allItems }) => {
 
   const handleCompleteBtnClick = () => {
-    currentItem.isCompleted = !currentItem.isCompleted;
-    // It just opposite the current value of isCompleted
-    // Then render all items with updated properties
+    setTodos(allItems.map(item => {
+      if (item.id === currentItem.id) {
+        return {
+          ...item,
+          isCompleted: !currentItem.isCompleted
+        }
+      }
+      return item;
+    }));
+
+    // It loops through all items in array and where id is matched with currentItem id then, 
+    // just opposite the current value of isCompleted and return it.
   }
 
   const handleDeleteBtnClick = () => {
-    setTodos(allItems.filter((el) => el.id !== currentItem.id));
+    setTodos(allItems.filter(item => item.id !== currentItem.id));
+
     // filter method loop through each element in allItems array
     // and render only those whose id doesn't match currentItem's id
   }
 
   const handleEditText = e => {
-    currentItem.text = (e.target.innerText);
-    console.log(currentItem.text);
-
-    // TODO: if text become empty then delete that li
-    // check new text must not be empty or same  as other text
-    // if so then alert or do something
+    let newText = e.target.innerText;
+    if (newText !== "" || newText !== " " || newText !== null) {
+      setTodos(allItems.map(item => {
+        if (item.id === currentItem.id) {
+          return {
+            ...item,
+            text: newText
+          }
+        }
+        return item;
+      }));
+    }
   }
 
-  // const handleEditbtn = () => {
-  //   currentItem.isEditable = true;
-  //   // isEditable = !isEditable;
-  //   // isAutoFocus = !isAutoFocus;
-  //   // make it editable
-  // }
+  const handleEditbtn = () => {
+    setTodos(allItems.map(item => {
+      if (item.id === currentItem.id) {
+        return {
+          ...item,
+          isEditable: !currentItem.isEditable
+        }
+      }
+      return item;
+    }));
+
+    // it loops through the array and check where id is equal to currentItem's id
+    // then change isEditable property to opposite of current property
+  }
+
 
   return (
     <ItemContainer>
       <ItemTextContainer>
         <ArrowContainer>&#10148;</ArrowContainer>
         <TextLiContainer
-          contentEditable={true}
-          style={currentItem.isCompleted ? { textDecoration: 'lineThrough' } : null}
+          contentEditable={currentItem.isEditable}
+          isDone={currentItem.isCompleted}  // it apply completed styles acc. to isCompleted property
           onInput={handleEditText}
         >
           {currentItem.text}
@@ -52,10 +77,10 @@ const Item = ({ setTodos, currentItem, allItems }) => {
           btnName="&#10007;"
           handleClick={handleDeleteBtnClick}
         />
-        {/* <Button
+        <Button
           btnName="&#9998;"
           handleClick={handleEditbtn}
-        /> */}
+        />
         <Button
           btnName="&#10003;"
           handleClick={handleCompleteBtnClick}

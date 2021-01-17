@@ -69,9 +69,11 @@ export const AppContainer = styled.div`
   background: var(--black);
 
   @media screen and (max-width: 800px){
-    width: 90vw;
-    min-height: 90vh;
-    margin: 1rem auto;
+    width: 100vw;
+    padding-top: 10px;
+    min-height: 80vh;
+    margin: 0 auto;
+    border-radius: 0;
   }
 `;
 

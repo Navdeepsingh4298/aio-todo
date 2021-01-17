@@ -7,22 +7,21 @@ export const FooterContainer = styled.div`
   flex-direction: column;
   width: 70vw;
   height: 5rem;
-  margin: 10px;
   letter-spacing: 1px;
-  
 
   @media screen and (max-width: 800px){
-    width: 90vw;
+    width: 100vw;
+    height: 3.6rem;
   }
 `;
 
 export const FooterPara = styled.p`
-  font-size: 1rem;
+  font-size: 0.8rem;
+  color: var(--grey);
   margin: 0;
-  color: #eee;
 `;
 
 export const FooterLink = styled.a`
-  text-decoration: none;
-  color: #eee;
+  color: var(--grey);
+  font-size: 1rem;
 `;

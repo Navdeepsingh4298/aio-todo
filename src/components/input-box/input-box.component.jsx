@@ -21,9 +21,10 @@ const InputBox = ({ inputText, setInputText, todos, setTodos }) => {
       setTodos([
         ...todos,
         {
+          id: uuidv4(),
           text: inputText,
           isCompleted: false,
-          id: uuidv4()
+          isEditable: false
         }
       ]);
       setInputText('');

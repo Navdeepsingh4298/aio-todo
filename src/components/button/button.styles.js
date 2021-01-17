@@ -9,7 +9,7 @@ export const BtnContainer = styled.button`
   color: var(--black);
   width: 2.5rem;
   height: 2.5rem;
-  margin: 5px;
+  margin: 0 5px;
   border-radius: 5px;
   border: none;
 

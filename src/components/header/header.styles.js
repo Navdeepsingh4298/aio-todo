@@ -8,7 +8,6 @@ const CenterStyles = css`
 
 export const HeaderContainer = styled.div`
   ${CenterStyles}
-  margin-top: 0;
   width: auto;
   padding: 2em;
   margin: 1rem auto;

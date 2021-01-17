@@ -8,6 +8,8 @@ import { ItemListContainer } from './item-list.styles';
 
 const ItemList = ({ items, setTodos }) => {
 
+  // TODO: Make li 's  sortable so that it can be arranged in right order
+
   return (
     <ItemListContainer>
       {

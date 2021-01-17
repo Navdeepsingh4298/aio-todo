@@ -24,11 +24,11 @@ export const ItemContainer = styled.div`
 export const ItemTextContainer = styled.div`
   display: flex;
   align-items: flex-start;
-  width: 85%;
+  width: 80%;
   border-bottom: 1px solid black;
 
   @media screen and (max-width:800px){
-    width: 80%;
+    width: 70%;
   }
 `;
 
@@ -39,15 +39,26 @@ export const ArrowContainer = styled.span`
 
 export const TextLiContainer = styled.li`
   list-style-type: none;
+  padding: 0 5px;
+
+  ${({ contentEditable }) => contentEditable && `
+      color: var(--yellow);
+      background: var(--light-black);
+  `}
+
+  ${({ isDone }) => isDone && `
+    text-decoration: line-through;
+    opacity: 0.5;
+  `}
 `;
 
 export const BtnContainer = styled.div`
   ${centeredStyles};
   height: 3rem;
-  width: 15%;
+  width: 20%;
 
   @media screen and (max-width:800px){
     height: 2rem;
-    width: 20%;
+    width: 30%;
   }
 `;
