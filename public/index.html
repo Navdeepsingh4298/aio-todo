@@ -24,6 +24,21 @@
 <body>
   <noscript>You need to enable JavaScript to run AIO TODO MERN App.</noscript>
   <div id="root"></div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./serviceWorker.js')
+          .then((reg) => console.log('Success: ', reg.scope))
+          .catch((err) => console.log('Failure: ', err));
+      });
+    }
+  </script>
+  <!-- To make PWA App you need to add service worker file and cache
+      1. create manifest file (use pwa-asset-generator to generate icons for manifest)
+      2. create serviceworker file
+      3. and finally, add script tag to register service worker
+      NOTE: we can use "workbox" by npm to make a website as a PWA App
+     -->
 </body>
 
 </html>

@@ -14,9 +14,10 @@ export const BtnContainer = styled.button`
   border: none;
 
   @media screen and (max-width: 800px){
-    height: 2rem;
+    height:  2rem;
     width: 2rem;
     margin: 0 2.5px;
+    padding: 0;
   }
 
   &:hover{
